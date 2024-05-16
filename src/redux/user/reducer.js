@@ -1,15 +1,20 @@
+import UserActionTypes from "../../redux/user/action-types";
+
 const initialState = {
-    currentUser: null
-}
+  currentUser: null,
+};
 
 const userReducer = (state, action) => {
-    state = initialState;
+  state = initialState;
 
-    if (action.type === "user/login") {
-        return {...state, currentUser: 10 };
-    };
-
-    return state;
-}
+  switch (action.type) {
+    case UserActionTypes.LOGIN:
+      return { ...state, currentUser: action.payload };
+    case UserActionTypes.LOGOUT:
+      return { ...state, currentUser: null };
+    default:
+      return state;
+  }
+};
 
 export default userReducer;
