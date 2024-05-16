@@ -1,4 +1,4 @@
-import UserActionTypes from "../../redux/user/action-types";
+import UserActionTypes from "./action-types";
 
 const initialState = {
   currentUser: null,
