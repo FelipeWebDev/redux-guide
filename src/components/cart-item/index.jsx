@@ -1,10 +1,10 @@
 import { AiOutlinePlus, AiOutlineMinus, AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import {
-  removeProductToCart,
+  removeProduct,
   increaseProductQuantity,
   decreaseProductQuantity,
-} from "../../redux/cart/actions";
+} from "../../redux/cart/slice";
 
 import addProductLocalStorage from "../local-storage/add-product";
 import removeProductLocalStorage from "../local-storage/remove-product";
@@ -17,7 +17,7 @@ const CartItem = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleRemoveClick = () => {
-    dispatch(removeProductToCart(product.id));
+    dispatch(removeProduct(product.id));
     removeProductLocalStorage(product);
   };
 

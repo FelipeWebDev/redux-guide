@@ -11,7 +11,6 @@ const Cart = ({ isVisible, setIsVisible }) => {
   const handleEscapeAreaClick = () => setIsVisible(false);
 
   const productsTotalPrice = useSelector(selectProductsTotalPrice)
-
   const {products} = useSelector((rootReducer) => rootReducer.cartReducer);
 
   return (
