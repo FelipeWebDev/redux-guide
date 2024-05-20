@@ -24,11 +24,7 @@ const cartSlice = createSlice ({
     },
 
     removeProduct: (state, action) => {
-      state.products = state.products.map((product) =>
-        product.id === action.payload
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
-      );
+      state.products = state.products.filter(product => product.id !== action.payload)
     },
 
     increaseProductQuantity: (state, action) => {
