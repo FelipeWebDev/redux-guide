@@ -6,9 +6,11 @@ export default function decreaseProductLocalStorage(product) {
       
       if (item.id === product.id) {
         if (item.quantity > 1) {
-          item.quantity = item.quantity - 1
+          item.quantity -= 1;
+          break;
         } else {
-          itemsInCart.splice(i, 1)
+          itemsInCart.splice(i, 1);
+          break;
         }
       }
     }

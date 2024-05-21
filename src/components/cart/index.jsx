@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import CartItem from "../cart-item/index";
-import { selectProductsTotalPrice } from "../../redux/cart/cart.selectors";
-import {loadCartItemsFromLocalStorage} from "../../redux/cart/local-storage";
+import { selectProductsTotalPrice, selectCartItemsFromLocalStorage } from "../../redux/cart/cart.selectors";
 
 // Styles
 import * as Styles from "./styles";
@@ -13,7 +12,7 @@ const Cart = ({ isVisible, setIsVisible }) => {
 
   useEffect(
     () => {
-      dispatch(loadCartItemsFromLocalStorage())
+      dispatch(selectCartItemsFromLocalStorage())
     }, [dispatch]
   )
 
