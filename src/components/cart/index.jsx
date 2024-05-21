@@ -1,13 +1,22 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import CartItem from "../cart-item/index";
-
 import { selectProductsTotalPrice } from "../../redux/cart/cart.selectors";
+import {loadCartItemsFromLocalStorage} from "../../redux/cart/local-storage";
 
 // Styles
 import * as Styles from "./styles";
 
 const Cart = ({ isVisible, setIsVisible }) => {
+  const dispatch = useDispatch();
+
+  useEffect(
+    () => {
+      dispatch(loadCartItemsFromLocalStorage())
+    }, [dispatch]
+  )
+
   const handleEscapeAreaClick = () => setIsVisible(false);
 
   const productsTotalPrice = useSelector(selectProductsTotalPrice)

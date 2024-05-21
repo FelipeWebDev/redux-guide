@@ -5,8 +5,9 @@ export default function addProductLocalStorage(product) {
 
     newItemsInCart.forEach(function (item) {
       if (item.id === product.id) {
-        item.quantity = item.quantity ? item.quantity + 1 : 2;
+        item.quantity =  item.quantity + 1;
       } else {
+        product.quantity = 1;
         newItemsInCart.push(product);
       }
     });
@@ -14,6 +15,7 @@ export default function addProductLocalStorage(product) {
     const finalItemsInCart = JSON.stringify(newItemsInCart);
     localStorage.setItem("cart", finalItemsInCart);
   } else {
+    product.quantity = 1;
     localStorage.setItem("cart", JSON.stringify([product]));
   }
 }
